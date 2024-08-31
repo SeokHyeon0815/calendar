@@ -1,0 +1,151 @@
+div,
+body,
+p,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+ul,
+li {
+  margin: 0;
+  list-style: none;
+}
+.main-wrap {
+  width: 80%;
+  margin: 0 auto;
+}
+.main-wrap h2 {
+  margin: 0 auto;
+  padding: 10px;
+}
+/* 캘린더 날짜*/
+.header-wrap {
+  padding: 20px 50px;
+  width: 80%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+/* 년도 월 */
+.header-wrap #date {
+  font-size: 18px;
+  padding: 20px;
+  font-weight: 800;
+}
+/* 버튼 */
+.header-wrap button {
+  padding: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  width: 100px;
+
+  border: 0;
+  border-radius: 25px;
+  background-color: #b4b0b0;
+  color: #565353;
+  cursor: pointer;
+}
+.header-wrap button:hover {
+  color: #fff;
+  background-color: #565353;
+}
+
+/* 요일 */
+.days-wrap {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: grid;
+  justify-items: center;
+
+  /* grid-template-columns: repeat(7, 1fr); */
+  grid-template-columns: repeat(auto-fill, minmax(14%, auto));
+  /* repeat함수 ==> repaet(반복횟수, 반복값) 
+    auto-fill로 자동으로 꽉채워주고 , 최소 7일이니깐 (14%)로 최대는 auto로 설정으로 반복하면
+    ==> 모바일에서도 연속적인 일~토 요일을 볼수있다.
+  */
+}
+.days-wrap .day {
+  padding: 10px 50px;
+}
+/* 일요일 */
+.days-wrap .day-sun::after {
+  content: " ";
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+}
+/* 토요일 */
+.days-wrap .day-sat::after {
+  content: " ";
+  display: inline-block;
+  width: 100%;
+  height: 2px;
+  background-color: blue;
+}
+
+/* 일수 */
+
+.date-wrap {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(14%, auto));
+  justify-content: center;
+}
+.date-wrap li {
+  text-align: center;
+  padding: 25px 20px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+.date-wrap .prevWeek {
+  opacity: 0.2;
+}
+.date-wrap .nextWeek {
+  opacity: 0.2;
+}
+
+/* 테블릿 */
+@media screen and (max-width: 1200px) {
+  .header-wrap #date {
+    font-size: 25px;
+    text-align: center;
+  }
+  .days-wrap .day {
+    padding: 20px 40px;
+  }
+  .date-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(13%, auto));
+  }
+  .date-wrap li {
+    padding: 20px 40px;
+  }
+}
+
+/* 모바일 */
+@media screen and (max-width: 767px) {
+  .header-wrap #date {
+    font-size: 25px;
+    text-align: center;
+  }
+  .days-wrap .day {
+    padding: 10px 12px;
+  }
+  .date-wrap {
+    grid-template-columns: repeat(auto-fill, minmax(13%, auto));
+  }
+  .date-wrap li {
+    padding: 20px 12px;
+  }
+}
